@@ -10,3 +10,11 @@ export async function saveSelectedPlatformItems(items: String[]) {
 
   redirect("/user/new-profile/create/add-links");
 }
+
+export async function saveSelectedUserNames(items: Record<string, string>) {
+  console.log("Saving items:", items);
+  // Set a cookie with the items data
+  cookies().set("selectedUsernames", JSON.stringify(items), { path: "/" });
+
+  redirect("/user/new-profile/create/select-profile");
+}
