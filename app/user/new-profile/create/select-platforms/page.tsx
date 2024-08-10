@@ -1,9 +1,17 @@
-import React from 'react'
+import CreateLinkHeader from "@/components/createLinkHeader";
+import PlatformPicker from "@/components/platformPicker";
+import React from "react";
 
-const SelectPlatforms = () => {
+const AddSocialLinks = () => {
   return (
-    <div>SelectPlatforms</div>
-  )
-}
+    <>
+      <CreateLinkHeader
+        title="Select your content"
+        subtitle="Pick up to 5 link types to get started."
+      />
+      <PlatformPicker />
+    </>
+  );
+};
 
-export default SelectPlatforms
+export default AddSocialLinks;

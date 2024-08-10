@@ -1,14 +1,25 @@
-import PlatformPicker from '@/components/platformPicker'
-import React from 'react'
+import { AddLinks } from "@/components/addLinks";
+import CreateLinkHeader from "@/components/createLinkHeader";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+import React from "react";
 
-const AddSocialLinks = () => {
+const SelectPlatforms = async () => {
+  const cookieStore = cookies();
+  const selectedItems = await JSON.parse(cookieStore.get("selectedItems")?.value || "[]");
+  if (selectedItems.length === 0) {
+    return redirect("/user/new-profile/create/select-platforms");
+  }
+
   return (
-    <div className='w-full  min-h-screen flex flex-col items-center pt-28 gap-10'>
-      <h2 className='animate-slideUp  font-extrabold text-5xl text-center'>Select your content</h2>
-      <p className='animate-slideUp  text-gray-500 text-xl text-center'>Pick up to 5 link types to get started.</p>
-      <PlatformPicker/>
-    </div>
-  )
-}
+    <>
+      <CreateLinkHeader
+        title="Add your links"
+        subtitle="Complete the fields below to add your content to your new Linktree."
+      />
+      <AddLinks selectedTypes={selectedItems} />
+    </>
+  );
+};
 
-export default AddSocialLinks
+export default SelectPlatforms;
