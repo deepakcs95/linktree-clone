@@ -1,3 +1,4 @@
+import { Icon } from "next/dist/lib/metadata/types/metadata-types";
 import { IconType } from "react-icons";
 import { CgWebsite } from "react-icons/cg";
 import {
@@ -17,6 +18,8 @@ export type ContentType = {
   name: string;
   icon: IconType;
 };
+
+export const PlatfromSmall: IconType[] = [FaInstagramSquare, FaTiktok, FaWhatsapp];
 
 export const PlatformIcons: ContentType[] = [
   { name: "Instagram", icon: FaInstagramSquare },

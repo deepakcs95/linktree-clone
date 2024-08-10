@@ -1,14 +1,8 @@
 "use client";
 
 import { PlatformIcons } from "@/utils/platformTypes";
-import React, { useEffect, useState } from "react";
 import Button from "./submitButton";
-import { validateUsernames } from "@/utils/validator";
 import { useUsernamesValidation } from "@/lib/hooks/useUsernamesValidation ";
-
-type Usernames = {
-  [key: string]: string;
-};
 
 export const AddLinks = ({ selectedTypes }: { selectedTypes: string[] }) => {
   const { errors, handleChange, handleSubmit, usernames } = useUsernamesValidation(selectedTypes);
