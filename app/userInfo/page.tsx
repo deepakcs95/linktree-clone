@@ -1,9 +1,17 @@
+
 import Logo from '@/components/logo'
 import DomainInputBox from '@/components/domainInputBox'
 import React from 'react'
-import Link from 'next/link'
+import SignIn from '@/components/sigin-in'
+import { auth } from '@/auth'
+import { permanentRedirect } from 'next/navigation'
 
-const page = () => {
+const  page =async ()=> {
+
+ const session = await auth()
+
+ if(session?.user) permanentRedirect(`user/${session?.user?.name}`)
+
   return (
     <main className="relative flex min-h-screen  justify-center p-24">
       <Logo/>
@@ -15,9 +23,9 @@ const page = () => {
 </p>
 <button className='w-full bg-blue-600 hover:bg-blue-500 p-6 text-xl text-white rounded-3xl'>Continue</button>
     
-    <p className='pt-6 text-gray-600 text-[18px] text-center' >Already have an account? <Link href={'/login'}>Log in</Link></p>
+    <p className='pt-6 text-gray-600 text-[18px] text-center' >Already have an account? </p><SignIn/>
       </div>
-      <div className="hidden relative md:fixed md:min-h-screen ">side image</div>
+     
       </main>
     
   )
