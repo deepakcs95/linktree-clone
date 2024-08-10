@@ -8,11 +8,12 @@ export default async function  Home() {
   const session = await auth()
 console.log(session?.user?.name);
 
-  if (!session) redirect('/userInfo')
+  if (!session) redirect('/auth')
 
   return (
-    <main className="flex min-h-screen  items-center justify-between p-24">
+    <main className="flex  min-h-screen  items-center justify-between p-24">
       <Logo/>
+      
       
     </main>
   );

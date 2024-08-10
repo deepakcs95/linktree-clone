@@ -8,7 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
-    
+    keyframes: {
+        slideUp: {
+          '0%, 100%': { transform: 'translateY(20px)' },
+          '100%': { transform: 'translateY(0)' },
+        }
+      },
+       animation: {
+        slideUp: 'slideUp 200ms ease-in-out',
+      }
     },
   },
   plugins: [],
