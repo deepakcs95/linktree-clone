@@ -12,6 +12,7 @@
     "@auth/mongodb-adapter": "^3.4.2",
     "@coreui/icons": "^3.0.1",
     "@coreui/icons-react": "^2.3.0",
+    "lodash": "^4.17.21",
     "mongodb": "^6.8.0",
     "next": "14.2.5",
     "next-auth": "^5.0.0-beta.20",

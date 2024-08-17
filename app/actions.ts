@@ -3,6 +3,14 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
+export async function saveUserNames() {
+  // console.log("Saving items:", items);
+  // Set a cookie with the items data
+  // cookies().set("select-platforms", JSON.stringify(items), { path: "/user" });
+
+  redirect("/user/new-profile/create/select-platforms");
+}
+
 export async function saveSelectedPlatformItems(items: String[]) {
   console.log("Saving items:", items);
   // Set a cookie with the items data
