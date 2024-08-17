@@ -3,7 +3,7 @@
 import { saveSelectedPlatformItems } from "@/app/actions";
 import { contentTypes } from "@/utils/platformTypes";
 import React, { useState } from "react";
-import Button from "./submitButton";
+import SubmitButton from "./submitButton";
 
 type ContentKeyType = keyof typeof contentTypes;
 
@@ -59,12 +59,12 @@ const PlatformPicker = () => {
           );
         })}
       </div>
-      <Button
+      <SubmitButton
         disabled={selectedItems.length < 5}
         onClick={() => saveSelectedPlatformItems(selectedItems)}
       >
         Next
-      </Button>
+      </SubmitButton>
     </div>
   );
 };

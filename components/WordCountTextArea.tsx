@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Button from "./submitButton";
 
 interface WordCountTextAreaProps {
   maxWords: number;
@@ -27,20 +28,22 @@ const WordCountTextArea: React.FC<WordCountTextAreaProps> = ({ maxWords, value, 
   };
 
   return (
-    <div className="relative">
-      <textarea
-        value={text}
-        onChange={handleChange}
-        placeholder="Type here..."
-        className="w-[400px] lg:w-[600px] p-4 pt-8  bg-gray-100 rounded-lg text-xl "
-      />
-      <label className="absolute top-2 left-3 z-10" htmlFor="text">
-        Bio
-      </label>
-      <div className=" absolute bottom-4 right-4 text-sm text-gray-600">
-        {wordCount}/{maxWords} words
+    <>
+      <div className="relative">
+        <textarea
+          value={text}
+          onChange={handleChange}
+          placeholder="Type here..."
+          className="w-[400px] lg:w-[600px] p-4 pt-8  bg-gray-100 rounded-lg text-xl "
+        />
+        <label className="absolute top-2 left-3 z-10" htmlFor="text">
+          Bio
+        </label>
+        <div className=" absolute bottom-4 right-4 text-sm text-gray-600">
+          {wordCount}/{maxWords} words
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

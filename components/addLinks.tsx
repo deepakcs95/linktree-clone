@@ -1,8 +1,8 @@
 "use client";
 
 import { PlatformIcons } from "@/utils/platformTypes";
-import Button from "./submitButton";
 import { useUsernamesValidation } from "@/lib/hooks/useUsernamesValidation ";
+import SubmitButton from "./submitButton";
 
 export const AddLinks = ({ selectedTypes }: { selectedTypes: string[] }) => {
   const { errors, handleChange, handleSubmit, usernames } = useUsernamesValidation(selectedTypes);
@@ -36,9 +36,9 @@ export const AddLinks = ({ selectedTypes }: { selectedTypes: string[] }) => {
         })}
       </div>
 
-      <Button disabled={false} onClick={handleSubmit}>
+      <SubmitButton disabled={false} onClick={handleSubmit}>
         Continue
-      </Button>
+      </SubmitButton>
     </>
   );
 };

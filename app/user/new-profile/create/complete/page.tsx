@@ -1,6 +1,7 @@
 import CreateLinkHeader from "@/components/createLinkHeader";
 import LinktreePreview from "@/components/linktreePreview";
 import ProfileInfo from "@/components/profileInfo";
+import SubmitButton from "@/components/submitButton";
 import Button from "@/components/submitButton";
 import React from "react";
 
@@ -15,9 +16,6 @@ const SelectProfile = () => {
       />
       <p className="font-bold text-xl">linktr.ee/deepkasak</p>
       <LinktreePreview />
-      <button className="sticky bottom-7 w-[400px] text-white py-5 rounded-xl bg-blue-500">
-        Continue
-      </button>
     </>
   );
 };

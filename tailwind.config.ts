@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import daisyui from "daisyui";
 
 const config: Config = {
   content: [
@@ -8,17 +9,20 @@ const config: Config = {
   ],
   theme: {
     extend: {
-    keyframes: {
+      keyframes: {
         slideUp: {
-          '0%, 100%': { transform: 'translateY(20px)' },
-          '100%': { transform: 'translateY(0)' },
-        }
+          "0%, 100%": { transform: "translateY(20px)" },
+          "100%": { transform: "translateY(0)" },
+        },
       },
-       animation: {
-        slideUp: 'slideUp 200ms ease-in-out',
-      }
+      animation: {
+        slideUp: "slideUp 200ms ease-in-out",
+      },
     },
   },
-  plugins: [],
+  daisyui: {
+    themes: ["light"],
+  },
+  plugins: [daisyui],
 };
 export default config;

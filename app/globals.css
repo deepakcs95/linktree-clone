@@ -8,14 +8,8 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-
-
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 }
-
-
-
