@@ -15,7 +15,7 @@ const Users = async () => {
   return (
     <div className=" flex min-h-screen  justify-center p-24">
       <Logo />
-      <div className="flex  pt-4 lg:w-[640px] lg:pt-14 flex-col items-center w-full ">
+      <div className="flex text-center  pt-4 lg:w-[640px] lg:pt-14 flex-col items-center w-full ">
         <h2 className="text-black text-5xl lg:text-5xl font-extrabold ">Welcome to Linktree!</h2>
         <p className="pt-6 text-gray-600 text-[18px] text-center">
           Choose your Linktree username. You can always change it later.

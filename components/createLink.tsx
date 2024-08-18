@@ -12,15 +12,17 @@ function CreateNewLink() {
   const [isValid, setIsValid] = useState<boolean | null>(null);
   const [isChecking, setIsChecking] = useState(false);
 
+  console.log();
+
   const handleInputChange = useCallback(
     debounce(async (value: string) => {
       setIsChecking(true);
       setIsValid(null);
 
       try {
-        const data = await fetch(`http://localhost:3000/api/user/${value}`).then((res) =>
-          res.json()
-        );
+        const data = await fetch(
+          `http://${process.env.NEXT_PUBLIC_HOSTNAME}/api/user/${value}`
+        ).then((res) => res.json());
         setIsValid(data.isAvailable);
       } catch (error) {
         console.error("Error checking username:", error);
@@ -67,13 +69,7 @@ function CreateNewLink() {
       <p className="pt-12 py-8 text-gray-600 text-[18px] text-center">
         By continuing, you agree to receive offers, news and updates from Linktree
       </p>
-      {/* <button
-        onClick={onSubmit}
-        disabled={!isValid || isChecking}
-        className="w-full bg-blue-600 hover:bg-blue-500 p-6 text-xl text-white rounded-3xl disabled:bg-gray-500"
-      >
-        Continue
-      </button> */}
+
       <SubmitButton disabled={!isValid || isChecking} onClick={onSubmit}>
         Continue
       </SubmitButton>
