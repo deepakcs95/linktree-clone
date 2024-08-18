@@ -1,13 +1,13 @@
-// datasource db {
-//   provider = "sqlite"
-//   url      = env("DATABASE_URL")
-// }
- 
 datasource db {
-  provider = "postgresql"
-  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
 }
+ 
+// datasource db {
+//   provider = "postgresql"
+//   url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+//   directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+// }
 generator client {
   provider = "prisma-client-js"
 }
@@ -18,6 +18,7 @@ model User {
   email         String?         @unique
   emailVerified DateTime?
   image         String?
+  links          Link?
   accounts      Account[]
   sessions      Session[]
   // Optional for WebAuthn support
@@ -26,6 +27,33 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+
+model Link {
+  id          String      @id @default(cuid())
+  userName    String   @unique
+  profileName String
+  imageUrl    String?
+  description String?
+  user        User     @relation(fields: [userId], references: [id])
+  userId      String   @unique
+ socialLinks SocialLink[]
+}
+
+model SocialLink {
+  id        String   @id @default(uuid())
+  platform  String
+  url       String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  link      Link     @relation(fields: [linkId], references: [id])
+  linkId    String
+}
+
+
+
+
+
  
 model Account {
   id                String  @id @default(cuid())
