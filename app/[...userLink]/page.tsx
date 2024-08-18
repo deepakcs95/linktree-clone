@@ -24,7 +24,7 @@ const UserLink = () => {
             key={index}
           >
             <p className="flex-1 text-center text-xl font-bold">index</p>
-            <svg
+            {/* <svg
               className=" ml-auto mr-2"
               onClick={() => document.getElementById("my_modal_3").showModal()}
               xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +36,7 @@ const UserLink = () => {
               <circle cx="12" cy="5" r="2" />
               <circle cx="12" cy="12" r="2" />
               <circle cx="12" cy="19" r="2" />
-            </svg>
+            </svg> */}
           </div>
         ))}
       </div>
