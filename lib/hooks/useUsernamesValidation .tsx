@@ -16,7 +16,7 @@ export function useUsernamesValidation(selectedTypes: string[]) {
       initialUsernames[type] = ""; // Set initial value as an empty string or default value
     });
     setUsernames(initialUsernames);
-  }, []);
+  }, [selectedTypes]);
 
   const handleChange = (name: string, value: string) => {
     setUsernames((prev) => ({
