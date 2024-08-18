@@ -1,5 +1,6 @@
 "use server";
 
+import { getSession, getUserLinks, isUserNameAvailable } from "@/lib/db";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
@@ -33,4 +34,19 @@ export async function saveUserProfile(title: string, text: string) {
   cookies().set("saveUserProfile", JSON.stringify({ title, text }), { path: "/user" });
 
   redirect("/user/new-profile/create/complete");
+}
+
+export async function checkUserNameAvailable(username: string) {
+  // await getSession();
+  console.log(username);
+
+  try {
+    const isAvailable = await getUserLinks();
+  } catch (error) {
+    console.error(error);
+  }
+
+  // console.log(username);
+
+  return { isAvailable: getUserLinks };
 }

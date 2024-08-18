@@ -9,7 +9,7 @@ import { SignOut } from "@/components/sign-out";
 const Auth = async () => {
   const session = await auth();
 
-  if (session?.user) permanentRedirect(`user/new-profile/create`);
+  if (session?.user) permanentRedirect(`user/` + session?.user?.name);
 
   return (
     <div className="relative flex min-h-screen min-w-[500px]  justify-center p-24">

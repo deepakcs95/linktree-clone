@@ -19,7 +19,7 @@ const Users = async () => {
         <h2 className="text-black text-5xl text-center lg:text-5xl font-extrabold ">
           Welcome to Linktree! {name}
         </h2>
-        <div>Here are your Links {links.profileName} </div>
+        <div>Here are your Links {item} </div>
         <Link
           className="w-full text-center bg-blue-600 hover:bg-blue-500 p-6 text-xl text-white rounded-3xl"
           href="/user/new-profile/create/"

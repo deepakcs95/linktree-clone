@@ -1,9 +1,4 @@
-import { auth } from "@/auth";
-import Logo from "@/components/logo";
-import { SignOut } from "@/components/sign-out";
-import Image from "next/image";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 
 export default async function Home() {
   return (

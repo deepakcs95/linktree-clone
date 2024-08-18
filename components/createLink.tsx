@@ -1,18 +1,17 @@
 "use client";
 
-import { saveUserNames } from "@/app/actions";
+import { checkUserNameAvailable, saveUserNames } from "@/app/actions";
 import React, { useCallback, useState } from "react";
 import { debounce } from "lodash";
 import { GrStatusGood } from "react-icons/gr";
 import { MdOutlineDangerous } from "react-icons/md";
 import SubmitButton from "./submitButton";
+import { getUserLinks } from "@/lib/db";
 
 function CreateNewLink() {
   const [username, setUsername] = useState("");
   const [isValid, setIsValid] = useState<boolean | null>(null);
   const [isChecking, setIsChecking] = useState(false);
-
-  console.log();
 
   const handleInputChange = useCallback(
     debounce(async (value: string) => {
@@ -20,9 +19,11 @@ function CreateNewLink() {
       setIsValid(null);
 
       try {
-        const data = await fetch(
-          `http://${process.env.NEXT_PUBLIC_HOSTNAME}/api/user/${value}`
-        ).then((res) => res.json());
+        // const data = await checkUserNameAvailable(value);
+        const test = await getUserLinks("clzzr2bby00006avazozah985");
+        const data = { isAvailable: false };
+        console.log(data);
+
         setIsValid(data.isAvailable);
       } catch (error) {
         console.error("Error checking username:", error);
