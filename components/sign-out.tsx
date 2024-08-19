@@ -9,7 +9,7 @@ export function SignOut() {
       }}
     >
       <button
-        className="absolute top-6 right-5 lg:top-7 lg:right-15 bg-black text-white px-5 py-4 rounded-md"
+        className="absolute  top-6   lg:top-7   right-6 md:right-16 lg:right-52  first-line: bg-black text-white sm:px-2 sm:py-2 px-5 py-4 rounded-md"
         type="submit"
       >
         Sign Out

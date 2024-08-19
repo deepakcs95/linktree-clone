@@ -28,7 +28,6 @@ const ShareModal: React.FC<ModalProps> = ({ link, onClose }) => {
     navigator.clipboard.writeText(link);
     alert("Link copied to clipboard!");
   };
-
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">
       <div className="bg-white rounded-lg shadow-lg w-80 p-6">

@@ -10,24 +10,24 @@ const Auth = async () => {
   if (session?.user) permanentRedirect(`user/` + session?.user?.name);
 
   return (
-    <div className="relative flex min-h-screen min-w-[500px]  justify-center p-24">
-      <Logo />
-      <div className="flex  pt-4 lg:w-[640px] lg:pt-14 flex-col items-center w-full ">
-        <h2 className="text-center text-black text-5xl lg:text-5xl font-extrabold ">
+    <div className="relative flex flex-col min-h-screen min-w-[300px] justify-center items-center px-7 ">
+      <div className="w-full max-w-md lg:max-w-2xl flex flex-col items-center">
+        <Logo />
+        <h2 className="text-center text-black text-4xl lg:text-5xl font-extrabold mt-4 lg:mt-8">
           Welcome to Linktree!
         </h2>
-        <p className="pt-6 text-gray-600 text-[18px] text-center">
+        <p className="pt-4 lg:pt-6 text-gray-600 text-lg text-center">
           Choose your Linktree username. You can always change it later.
         </p>
-        <p className="pt-12 py-8 text-gray-600 text-[18px] text-center">
-          By continuing, you agree to receive offers, news and updates from Linktree
+        <p className="pt-8 lg:pt-12 pb-8 lg:pb-12 text-gray-600 text-lg text-center">
+          By continuing, you agree to receive offers, news, and updates from Linktree.
         </p>
-        <div className="flex  gap-2 ">
+        <div className="flex flex-wrap justify-center gap-2 w-full">
           {Object.values(providerMap).map((provider) => (
             <SignIn key={provider.name} provider={provider} />
           ))}
         </div>
-        <p className="pt-6 text-gray-600 text-[18px] text-center">Already have an account? </p>
+        <p className="pt-6 text-gray-600 text-lg text-center">Already have an account?</p>
       </div>
     </div>
   );

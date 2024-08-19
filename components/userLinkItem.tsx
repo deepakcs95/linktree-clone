@@ -11,11 +11,12 @@ interface LinkProps {
 const UserLinkItem: React.FC<LinkProps> = ({ userName }) => {
   const [isModalOpen, setModalOpen] = React.useState(false);
 
-  const handleOpenModal: any = (e: any) => {
+  const handleOpenModal = (e: React.MouseEvent) => {
     e.preventDefault();
     setModalOpen(true);
   };
-  const handleCloseModal = (e: any) => {
+
+  const handleCloseModal = (e: React.MouseEvent) => {
     e.preventDefault();
     setModalOpen(false);
   };
@@ -24,15 +25,15 @@ const UserLinkItem: React.FC<LinkProps> = ({ userName }) => {
     <>
       <li className="w-full">
         <Link
-          className="flex items-center justify-between w-full bg-white py-5 outline outline-1 outline-gray-200 shadow-md rounded-sm"
+          className="flex items-center justify-between w-full bg-white py-4 px-6 outline outline-1 outline-gray-300 shadow-lg rounded-lg transition-transform transform hover:scale-105"
           href={`/${userName}`}
         >
-          <span className="flex-1 text-center">{userName}</span>
+          <span className="flex-1 text-center text-lg font-semibold text-gray-800">{userName}</span>
           <button
-            className="ml-4 mr-2 bg-red-500 text-white px-2 py-1 rounded-xl hover:bg-red-600"
+            className="ml-4 bg-red-500 text-white px-3 py-1 rounded-full hover:bg-red-600 transition-colors"
             onClick={handleOpenModal}
           >
-            x
+            &#x2715;
           </button>
         </Link>
       </li>
