@@ -2,7 +2,7 @@ import React from "react";
 import { auth, providerMap } from "@/auth";
 import { permanentRedirect } from "next/navigation";
 import Logo from "@/components/Logo";
-import { SignIn } from "@/components/sigin-in";
+import { SignIn } from "@/components/Sigin-in";
 
 const Auth = async () => {
   const session = await auth();
