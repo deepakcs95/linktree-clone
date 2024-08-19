@@ -33,7 +33,7 @@ const PlatformPicker = () => {
           <div
             className={`${
               type === id ? "bg-black text-white" : "bg-white shadow-md text-black"
-            } cursor-pointer px-6 py-2 rounded-2xl slideUp  `}
+            } cursor-pointer  px-2 py-1 md:px-6 md:py-2 rounded-2xl slideUp  `}
             key={id}
             onClick={() => handleTypeCHangekey(id)}
           >
@@ -41,10 +41,9 @@ const PlatformPicker = () => {
           </div>
         ))}
       </div>
-      <div className="mt-10 grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+      <div className="mt-10 px-3 grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
         {contentTypes[type].map((item) => {
           const Icon = item.icon;
-
           return (
             <div
               onClick={() => handleSelection(item.name)}
@@ -52,7 +51,7 @@ const PlatformPicker = () => {
               className={`cursor-pointer rounded-lg  bg-orange-100  ${
                 selectedItems.includes(item.name) &&
                 "outline outline-offset-7 outline-blue-500 outline-3 "
-              } m-2 w-32 h-32 shadow-xl flex justify-center items-center transition-all animate-slideUp`}
+              } m-2  w-24 h-24 lg:w-32 lg:h-32 shadow-xl flex justify-center items-center transition-all animate-slideUp`}
             >
               <Icon fontSize={40} />
             </div>

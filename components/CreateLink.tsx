@@ -42,7 +42,7 @@ function CreateNewLink() {
   );
 
   const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newUserName = event.target.value;
+    const newUserName = event.target.value.replace(/[^a-zA-Z0-9]/g, "");
     setUsername(newUserName);
     if (newUserName.length > 0) {
       handleInputChange(newUserName);
@@ -50,6 +50,7 @@ function CreateNewLink() {
       setIsValid(false);
     }
   };
+
   const onSubmit = async () => {
     setIsChecking(true);
     await saveUserNames(username);
@@ -57,26 +58,29 @@ function CreateNewLink() {
 
   return (
     <>
-      <div className="w-full relative bg-gray-200  cursor-pointer text-xl flex mt-10 items-center focus-within:ring-black  focus-within:ring-2 hover:ring-2 transition duration-75 ease-out  rounded-lg overflow-hidden">
-        <label className="pl-14 py-7   bg-gray-200" htmlFor="linktr.ee/">
+      <div className="w-full relative bg-gray-200 text-base lg:text-lg flex mt-6 lg:mt-10 items-center focus-within:ring-black focus-within:ring-2 hover:ring-2 transition duration-75 ease-out rounded-lg">
+        <label className="pl-3 lg:pl-10 py-3 lg:py-6 bg-gray-200" htmlFor="linktr.ee/">
           linktr.ee/
         </label>
         <input
-          className="w-full py-7 bg-gray-200 outline-none"
+          className="w-full py-3 lg:py-6 bg-gray-200 outline-none"
           type="text"
           value={username}
           name="Username"
           placeholder="Username"
-          onChange={(e) => onInputChange(e)}
+          onChange={onInputChange}
         />
-        {isChecking && <span className="bg-black mx-5 loading loading-spinner loading-lg"></span>}
-        {isValid && <GrStatusGood className="mx-5" color="green" fontSize={50} />}{" "}
-        {isValid === false && <MdOutlineDangerous className="mx-5" color="red" fontSize={50} />}
+        {isChecking && (
+          <span className="bg-black mx-2 lg:mx-4 loading loading-spinner loading-sm lg:loading-lg"></span>
+        )}
+        {isValid && <GrStatusGood className="mx-2 lg:mx-4" color="green" fontSize={20} />}
+        {isValid === false && (
+          <MdOutlineDangerous className="mx-2 lg:mx-4" color="red" fontSize={20} />
+        )}
       </div>
-      <p className="pt-12 py-8 text-gray-600 text-[18px] text-center">
-        By continuing, you agree to receive offers, news and updates from Linktree
+      <p className="pt-8 lg:pt-12 pb-4 lg:pb-8 text-gray-600 text-base lg:text-lg text-center">
+        By continuing, you agree to receive offers, news, and updates from Linktree.
       </p>
-
       <SubmitButton disabled={!isValid || isChecking} onClick={onSubmit}>
         Continue
       </SubmitButton>

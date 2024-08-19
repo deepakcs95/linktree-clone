@@ -8,30 +8,32 @@ const UserLink = async ({ params }: { params: { userLink: string } }) => {
   const links = await getLinkWithSocialLinks(params.userLink);
 
   return (
-    <>
-      <div className="flex  min-h-screen items-center justify-center">
-        <div className="mockup-phone">
-          <div className="camera"></div>
-          <div className="display">
-            <div
-              className={`artboard artboard-demo phone-1 gap-2 overflow-y-scroll ${
-                links?.socialLinks && links?.socialLinks?.length > 6 ? "pt-52" : "pt-14"
-              }  `}
-            >
-              <ProfileImage profileName={links?.profileName!} imageUrl={links?.imageUrl!} />
-              <h2 className="text-xl font-extrabold">{links?.profileName}</h2>
-              <p className="text-md font-bold">{links?.description}</p>
-              <div className="flex gap-3">
-                <SocialLinksPreview socialLinks={links?.socialLinks!} />
-              </div>
-              <div className="w-[280px]  flex flex-col items-center justify-center gap-2 mt-2">
-                <FullSocialLinks socialLinks={links?.socialLinks!} />
-              </div>
+    <div className="flex min-h-screen items-center justify-center bg-gray-100 p-6">
+      <div className="mockup-phone ">
+        <div className="camera"></div>
+        <div className="display bg-white rounded-lg  overflow-y-scroll">
+          <div
+            className={`artboard artboard-demo phone-1 p-6 ${
+              links?.socialLinks && links?.socialLinks.length > 6 ? "pt-40" : "pt-24"
+            }`}
+          >
+            <ProfileImage profileName={links?.profileName!} imageUrl={links?.imageUrl!} />
+            <h2 className="text-3xl font-extrabold text-gray-800 mt-4 break-words	  ">
+              {links?.profileName}
+            </h2>
+            <p className="max-w-[25ch] text-center   text-sm font-semibold text-gray-600 mt-1  break-words	">
+              {links?.description}
+            </p>
+            <div className="mt-2">
+              <SocialLinksPreview socialLinks={links?.socialLinks!} />
+            </div>
+            <div className="w-full max-w-xs mx-auto mt-3">
+              <FullSocialLinks socialLinks={links?.socialLinks!} />
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

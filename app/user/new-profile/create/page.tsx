@@ -12,16 +12,18 @@ const Users = async () => {
   if (!session) permanentRedirect("/auth");
 
   return (
-    <div className=" flex min-h-screen  justify-center p-24">
-      <Logo />
-      <div className="flex text-center  pt-4 lg:w-[640px] lg:pt-14 flex-col items-center w-full ">
-        <h2 className="text-black text-5xl lg:text-5xl font-extrabold ">Welcome to Linktree!</h2>
-        <p className="pt-6 text-gray-600 text-[18px] text-center">
+    <div className="flex min-h-screen min-w-[300px] justify-center p-6 lg:p-24">
+      <div className="w-full max-w-md px-2 lg:max-w-2xl  flex gap-2 flex-col items-center">
+        <Logo />
+        <h2 className="text-black text-3xl md:text-5xl lg:text-7xl text-center font-extrabold  mt-4 lg:mt-8">
+          Welcome to <span className="text-[#40FF55]">Linktree!</span>
+        </h2>
+        <p className="pt-6 text-gray-600 text-lg lg:text-[18px] text-center">
           Choose your Linktree username. You can always change it later.
         </p>
         <CreateNewLink />
+        <SignOut />
       </div>
-      <SignOut />
     </div>
   );
 };

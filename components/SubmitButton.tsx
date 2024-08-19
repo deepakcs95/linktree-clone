@@ -27,7 +27,7 @@ const SubmitButton: React.FC<ButtonProps> = React.memo(
         disabled={isLoading || disabled}
         onClick={(e) => handleSubmit(e)}
         className={`disabled:bg-gray-400  disabled:cursor-not-allowed
-       w-[400px] md:w-[600px] items-center rounded-3xl mt-7 text-white px-16 py-5 bg-blue-600 ${className}`}
+       w-[300px] md:w-[600px] items-center rounded-3xl  text-white px-16 mx-3 mb-3 py-5 bg-blue-600 ${className}`}
       >
         {!isLoading && children}
         {isLoading && <span className="bg-black   loading loading-spinner loading-md"></span>}

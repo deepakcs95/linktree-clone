@@ -16,7 +16,7 @@ export const AddLinks = ({ selectedTypes }: { selectedTypes: string[] }) => {
           const hasErrors = errors && errors[name];
 
           return (
-            <div key={name} className="animate-slideUp flex flex-col gap-4 items-center">
+            <div key={name} className="animate-slideUp flex flex-col gap-1 lg:gap-4 items-center">
               <div className="flex  items-center gap-4 w-full max-w-md" key={name}>
                 <IconComponent fontSize={50} />
                 <input

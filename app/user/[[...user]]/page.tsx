@@ -12,9 +12,9 @@ const Users = async () => {
     <div className="flex min-h-screen min-w-[300px] flex-col items-center justify-center p-4 lg:p-12">
       <Logo />
       <div className="flex flex-col items-center w-full gap-4 lg:gap-6 pt-4 lg:pt-10 animate-slideUp transition-all max-w-sm lg:max-w-lg">
-        <h2 className="text-black text-2xl lg:text-4xl text-center font-extrabold">
+        <h2 className="text-black text-4xl lg:text-5xl text-center font-extrabold">
           Welcome to Linktree!
-          <span className="block text-blue-600">{userLinks?.name}</span>
+          <span className="block text-[#40FF55] text-4xl lg:text-5xl mt-2">{userLinks?.name}</span>
         </h2>
 
         <div className="w-full flex flex-col items-center text-center gap-2 lg:gap-3">
