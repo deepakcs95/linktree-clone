@@ -3,14 +3,15 @@
 import React, { useState } from "react";
 import WordCountTextArea from "./WordCountTextArea";
 import Button from "./submitButton";
-import { saveUserProfile } from "@/app/actions";
+import { handleProfileSave } from "@/app/actions";
+import { Link } from "@prisma/client";
 
 const ProfileInfo = () => {
-  const [text, setText] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
   const [title, setTitle] = useState<string>("");
 
   const handleTextChange = (newValue: string) => {
-    setText(newValue);
+    setDescription(newValue);
   };
 
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -18,8 +19,8 @@ const ProfileInfo = () => {
   };
 
   const handleSubmit = async () => {
-    if (title && text) {
-      await saveUserProfile(title, text);
+    if (title && description) {
+      await handleProfileSave(title, description);
     }
   };
 

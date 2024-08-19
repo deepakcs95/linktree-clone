@@ -5,7 +5,7 @@ import { useUsernamesValidation } from "@/lib/hooks/useUsernamesValidation ";
 import SubmitButton from "./submitButton";
 
 export const AddLinks = ({ selectedTypes }: { selectedTypes: string[] }) => {
-  const { errors, handleChange, handleSubmit, usernames } = useUsernamesValidation(selectedTypes);
+  const { errors, handleChange, handleSubmit, socialLinks } = useUsernamesValidation(selectedTypes);
   const filteredIcons = PlatformIcons.filter(({ name }) => selectedTypes.includes(name));
 
   return (
@@ -22,7 +22,7 @@ export const AddLinks = ({ selectedTypes }: { selectedTypes: string[] }) => {
                 <input
                   onChange={(e) => handleChange(name, e.target.value)}
                   placeholder={`${name} username`}
-                  value={usernames[name] || ""}
+                  value={socialLinks[name] || ""}
                   className={`w-full  px-7 py-5 bg-[#f7f8f9] cursor-pointer rounded-xl hover:outline outline-gray-200 focus:outline outline-4 focus:outline-black outline-offset-6  transition-all ${
                     hasErrors ? "outline outline-red-600 outline-offset-6" : "mb-3"
                   }`}

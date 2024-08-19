@@ -1,12 +1,11 @@
 "use client";
 
-import { checkUserNameAvailable, saveUserNames } from "@/app/actions";
+import { saveUserNames } from "@/app/actions";
 import React, { useCallback, useState } from "react";
 import { debounce } from "lodash";
 import { GrStatusGood } from "react-icons/gr";
 import { MdOutlineDangerous } from "react-icons/md";
 import SubmitButton from "./submitButton";
-import { getUserLinks } from "@/lib/db";
 
 function CreateNewLink() {
   const [username, setUsername] = useState("");
@@ -17,17 +16,24 @@ function CreateNewLink() {
     debounce(async (value: string) => {
       setIsChecking(true);
       setIsValid(null);
-
       try {
-        // const data = await checkUserNameAvailable(value);
-        const test = await getUserLinks("clzzr2bby00006avazozah985");
-        const data = { isAvailable: false };
-        console.log(data);
+        const response = await fetch(`/api/user/${value}`, {
+          method: "GET",
+          cache: "no-store",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
 
         setIsValid(data.isAvailable);
       } catch (error) {
         console.error("Error checking username:", error);
-        setIsValid(false);
+        setIsValid(null);
       } finally {
         setIsChecking(false);
       }
@@ -46,7 +52,7 @@ function CreateNewLink() {
   };
   const onSubmit = async () => {
     setIsChecking(true);
-    await saveUserNames();
+    await saveUserNames(username);
   };
 
   return (

@@ -35,39 +35,30 @@ export const PlatformIcons: ContentType[] = [
   { name: "Linkedin", icon: FaLinkedin },
 ];
 
+// platforms.ts
+export const PlatformBaseUrls: { [key: string]: string } = {
+  Instagram: "https://instagram.com/",
+  Tiktok: "https://www.tiktok.com/@",
+  Website: "https://",
+  WhatsApp: "https://wa.me/",
+  OnlineStore: "https://",
+  Facebook: "https://facebook.com/",
+  Youtube: "https://www.youtube.com/c/",
+  Spotify: "https://open.spotify.com/user/",
+  Amazon: "https://www.amazon.com/shop/",
+  X: "https://twitter.com/",
+  Linkedin: "https://www.linkedin.com/in/",
+};
+
 export const contentTypes: { [key: string]: ContentType[] } = {
-  Popular: [
-    { name: "Instagram", icon: FaInstagramSquare },
-    { name: "Tiktok", icon: FaTiktok },
-    { name: "Website", icon: CgWebsite },
-    { name: "WhatsApp", icon: FaWhatsapp },
-    { name: "OnlineStore", icon: FaShoppingCart },
-    { name: "Facebook", icon: FaFacebook },
-    { name: "Youtube", icon: FaYoutubeSquare },
-    { name: "Spotify", icon: FaSpotify },
-    { name: "Amazon", icon: FaAmazon },
-    { name: "X", icon: FaSquareXTwitter },
-    { name: "Linkedin", icon: FaLinkedin },
-  ],
-  Creator: [
-    { name: "Tiktok", icon: FaTiktok },
-    { name: "Website", icon: FaWhatsapp },
-    { name: "Youtube", icon: FaYoutubeSquare },
-    { name: "Instagram", icon: FaInstagramSquare },
-    { name: "Facebook", icon: FaFacebook },
-    // Add more relevant items for creators
-  ],
-  Music: [
-    { name: "Spotify", icon: FaSpotify },
-    { name: "Youtube", icon: FaYoutubeSquare },
-    { name: "Amazon", icon: FaAmazon },
-    // Add or remove music-related items
-  ],
-  Personal: [
-    { name: "WhatsApp", icon: FaWhatsapp },
-    { name: "Facebook", icon: FaFacebook },
-    { name: "Instagram", icon: FaInstagramSquare },
-    { name: "X", icon: FaSquareXTwitter },
-    // Add more personal-use items if needed
-  ],
+  Popular: PlatformIcons,
+  Creator: ["Tiktok", "Website", "Youtube", "Instagram", "Facebook"].map(
+    (name) => PlatformIcons.find((item) => item.name === name)!
+  ),
+  Music: ["Spotify", "Youtube", "Amazon"].map(
+    (name) => PlatformIcons.find((item) => item.name === name)!
+  ),
+  Personal: ["WhatsApp", "Facebook", "Instagram", "X"].map(
+    (name) => PlatformIcons.find((item) => item.name === name)!
+  ),
 };

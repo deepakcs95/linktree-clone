@@ -1,25 +1,29 @@
-import { auth } from "@/auth";
-import DomainInputBox from "@/components/domainInputBox";
 import Logo from "@/components/logo";
 import { SignOut } from "@/components/sign-out";
 import { getUserLinks } from "@/lib/db";
 import Link from "next/link";
-import { permanentRedirect } from "next/navigation";
 import React from "react";
+import UserLinkItem from "@/components/userLinkItem";
 
 const Users = async () => {
-  const { name, links } = await getUserLinks();
-
-  const item = JSON.stringify(links);
+  const userLinks = await getUserLinks();
 
   return (
-    <div className=" flex min-h-screen flex-col justify-center p-24">
+    <div className="  flex min-h-screen  flex-col items-center justify-center p-24">
       <Logo />
-      <div className="flex  gap-8 pt-4 lg:w-[640px] lg:pt-14 flex-col items-center w-full ">
+      <div className="flex  gap-8 pt-4 lg:w-[640px] lg:pt-14 flex-col items-center w-full animate-slideUp transition-all">
         <h2 className="text-black text-5xl text-center lg:text-5xl font-extrabold ">
-          Welcome to Linktree! {name}
+          Welcome to Linktree! {userLinks?.name}
         </h2>
-        <div>Here are your Links {item} </div>
+        <div className="w-full flex flex-col items-center text-center gap-3">
+          <p className="text-xl font-bold">Here are your Links</p>
+          <ul className="w-full space-y-2 ">
+            {userLinks?.links &&
+              userLinks.links.map((link) => (
+                <UserLinkItem key={link.id} userName={link.userName} />
+              ))}
+          </ul>
+        </div>
         <Link
           className="w-full text-center bg-blue-600 hover:bg-blue-500 p-6 text-xl text-white rounded-3xl"
           href="/user/new-profile/create/"

@@ -7,9 +7,13 @@ export async function GET(request: Request, { params }: { params: { username: st
 
   console.log(params.username);
 
-  if (!session) return Response.json("Not authorised", { status: 404 });
+  if (!session) return Response.json("Not authorised", { status: 401 });
+
   const isAvailable = await isUserNameAvailable(params.username);
 
   //
-  return Response.json({ isAvailable, params: params.username });
+  return new Response(JSON.stringify({ isAvailable, username: params.username }), {
+    status: 200,
+    headers: { "Content-Type": "application/json" }, // Explicitly set content-type
+  });
 }

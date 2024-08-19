@@ -1,13 +1,12 @@
-"use client";
 import { PlatfromSmall } from "@/utils/platformTypes";
 import React from "react";
 
-const UserLink = () => {
+const UserLink = ({ params }: { params: { userLink: string } }) => {
   return (
     <>
       <div className="flex flex-col items-center pt-20 gap-10 h-screen   p-5  bg-gradient-to-tl  from-[#928d87] to-[#f5f1f0]  ">
         <div className="w-36 bg-blue-400 aspect-square rounded-full"></div>
-        <h2 className="text-3xl font-extrabold">Deepak</h2>
+        <h2 className="text-3xl font-extrabold">{params.userLink}</h2>
 
         <div className="flex gap-6">
           {PlatfromSmall.map((Icon, index) => (

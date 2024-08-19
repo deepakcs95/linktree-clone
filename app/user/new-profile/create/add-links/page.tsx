@@ -7,7 +7,7 @@ import React from "react";
 const SelectPlatforms = async () => {
   const cookieStore = cookies();
 
-  const selectedItems = await JSON.parse(cookieStore.get("selectedItems")?.value || "[]");
+  const selectedItems = await JSON.parse(cookieStore.get("platforms")?.value || "[]");
   if (selectedItems.length === 0) {
     return redirect("/user/new-profile/create/select-platforms");
   }
