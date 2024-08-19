@@ -19,6 +19,11 @@ export type ContentType = {
   icon: IconType;
 };
 
+export type SocialIconData = {
+  icon: IconType;
+  baseUrl: string;
+};
+
 export const PlatfromSmall: IconType[] = [FaInstagramSquare, FaTiktok, FaWhatsapp];
 
 export const PlatformIcons: ContentType[] = [
@@ -48,6 +53,53 @@ export const PlatformBaseUrls: { [key: string]: string } = {
   Amazon: "https://www.amazon.com/shop/",
   X: "https://twitter.com/",
   Linkedin: "https://www.linkedin.com/in/",
+};
+
+export const socialIconsWithUrls: { [key: string]: SocialIconData } = {
+  Instagram: {
+    icon: FaInstagramSquare,
+    baseUrl: "https://instagram.com/",
+  },
+  Tiktok: {
+    icon: FaTiktok,
+    baseUrl: "https://www.tiktok.com/@",
+  },
+  Website: {
+    icon: CgWebsite,
+    baseUrl: "https://",
+  },
+  WhatsApp: {
+    icon: FaWhatsapp,
+    baseUrl: "https://wa.me/",
+  },
+  OnlineStore: {
+    icon: FaShoppingCart,
+    baseUrl: "https://",
+  },
+  Facebook: {
+    icon: FaFacebook,
+    baseUrl: "https://facebook.com/",
+  },
+  Youtube: {
+    icon: FaYoutubeSquare,
+    baseUrl: "https://www.youtube.com/c/",
+  },
+  Spotify: {
+    icon: FaSpotify,
+    baseUrl: "https://open.spotify.com/user/",
+  },
+  Amazon: {
+    icon: FaAmazon,
+    baseUrl: "https://www.amazon.com/shop/",
+  },
+  X: {
+    icon: FaSquareXTwitter,
+    baseUrl: "https://twitter.com/",
+  },
+  Linkedin: {
+    icon: FaLinkedin,
+    baseUrl: "https://www.linkedin.com/in/",
+  },
 };
 
 export const contentTypes: { [key: string]: ContentType[] } = {

@@ -1,6 +1,5 @@
-import CreateLinkHeader from "@/components/createLinkHeader";
-import ProfileInfo from "@/components/profileInfo";
-import WordCountTextArea from "@/components/WordCountTextArea";
+import CreateLinkHeader from "@/components/CreateLinkHeader";
+import ProfileInfo from "@/components/ProfileInfo";
 import React from "react";
 
 const SelectProfile = () => {

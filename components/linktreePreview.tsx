@@ -2,7 +2,7 @@
 
 import { PlatfromSmall } from "@/utils/platformTypes";
 import React from "react";
-import SubmitButton from "./submitButton";
+import SubmitButton from "./SubmitButton";
 
 const LinktreePreview = () => {
   const handleSubmit = async () => {

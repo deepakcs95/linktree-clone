@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { UserLinkModal } from "./userLinkModal";
+import { UserLinkModal } from "./UserLinkModal";
 
 interface LinkProps {
   userName: string;
@@ -11,11 +11,11 @@ interface LinkProps {
 const UserLinkItem: React.FC<LinkProps> = ({ userName }) => {
   const [isModalOpen, setModalOpen] = React.useState(false);
 
-  const handleOpenModal: React.MouseEventHandler<HTMLElement> = (e) => {
+  const handleOpenModal: any = (e: any) => {
     e.preventDefault();
     setModalOpen(true);
   };
-  const handleCloseModal: React.MouseEventHandler<HTMLElement> = (e) => {
+  const handleCloseModal = (e: any) => {
     e.preventDefault();
     setModalOpen(false);
   };

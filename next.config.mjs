@@ -1,13 +1,15 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {images: {
+const nextConfig = {
+  images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'assets.production.linktr.ee',
-        port: '',
-        pathname: '/auth/**',
+        protocol: "https",
+        hostname: "*",
+        port: "",
+        pathname: "/**",
       },
     ],
-  },};
+  },
+};
 
 export default nextConfig;

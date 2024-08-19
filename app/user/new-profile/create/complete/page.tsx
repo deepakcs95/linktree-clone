@@ -1,8 +1,5 @@
-import CreateLinkHeader from "@/components/createLinkHeader";
-import LinktreePreview from "@/components/linktreePreview";
-import ProfileInfo from "@/components/profileInfo";
-import SubmitButton from "@/components/submitButton";
-import Button from "@/components/submitButton";
+import CreateLinkHeader from "@/components/CreateLinkHeader";
+import LinktreePreview from "@/components/LinktreePreview";
 import React from "react";
 
 const SelectProfile = () => {

@@ -1,5 +1,5 @@
-import { AddLinks } from "@/components/addLinks";
-import CreateLinkHeader from "@/components/createLinkHeader";
+import { AddLinks } from "@/components/AddLinks";
+import CreateLinkHeader from "@/components/CreateLinkHeader";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import React from "react";

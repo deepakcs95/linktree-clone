@@ -2,7 +2,7 @@
 
 import { PlatformIcons } from "@/utils/platformTypes";
 import { useUsernamesValidation } from "@/lib/hooks/useUsernamesValidation ";
-import SubmitButton from "./submitButton";
+import SubmitButton from "./SubmitButton";
 
 export const AddLinks = ({ selectedTypes }: { selectedTypes: string[] }) => {
   const { errors, handleChange, handleSubmit, socialLinks } = useUsernamesValidation(selectedTypes);

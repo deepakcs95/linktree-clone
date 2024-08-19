@@ -1,9 +1,9 @@
-import Logo from "@/components/logo";
-import { SignOut } from "@/components/sign-out";
+import Logo from "@/components/Logo";
+import { SignOut } from "@/components/Sign-out";
+import UserLinkItem from "@/components/UserLinkItem";
 import { getUserLinks } from "@/lib/db";
 import Link from "next/link";
 import React from "react";
-import UserLinkItem from "@/components/userLinkItem";
 
 const Users = async () => {
   const userLinks = await getUserLinks();

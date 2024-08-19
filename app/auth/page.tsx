@@ -1,10 +1,8 @@
-import Logo from "@/components/logo";
-import DomainInputBox from "@/components/domainInputBox";
 import React from "react";
-import { SignIn } from "@/components/sigin-in";
 import { auth, providerMap } from "@/auth";
 import { permanentRedirect } from "next/navigation";
-import { SignOut } from "@/components/sign-out";
+import Logo from "@/components/Logo";
+import { SignIn } from "@/components/sigin-in";
 
 const Auth = async () => {
   const session = await auth();
@@ -30,7 +28,6 @@ const Auth = async () => {
           ))}
         </div>
         <p className="pt-6 text-gray-600 text-[18px] text-center">Already have an account? </p>
-        {/* <SignIn/> */}
       </div>
     </div>
   );

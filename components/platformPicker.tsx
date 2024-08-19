@@ -3,7 +3,7 @@
 import { saveSelectedPlatformItems } from "@/app/actions";
 import { contentTypes } from "@/utils/platformTypes";
 import React, { useState } from "react";
-import SubmitButton from "./submitButton";
+import SubmitButton from "./SubmitButton";
 
 type ContentKeyType = keyof typeof contentTypes;
 

@@ -4,9 +4,9 @@ import {
   deleteLink,
   findUserByEmail,
   getSession,
-  getUserLinks,
   InputData,
   isUserNameAvailable,
+  queryLinkWithSocialLinks,
   saveUserData,
 } from "@/lib/db";
 import { withErrorHandling } from "@/utils/helper";
@@ -129,6 +129,17 @@ export async function deleteLinkAndSocialLinks(userName: string) {
     console.log("Link deleted successfully:", userName);
   } catch (error) {
     console.error("Error creating link:", error);
+  }
+}
+
+export async function getLinkWithSocialLinks(userName: string) {
+  let link;
+  try {
+    link = await queryLinkWithSocialLinks(userName);
+    return link;
+  } catch (error) {}
+  if (!link) {
+    redirect("/user");
   }
 }
 

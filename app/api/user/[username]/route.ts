@@ -1,6 +1,6 @@
 // route handler enabling draft mode
 import { auth } from "@/auth";
-import { getUserLinks, isUserNameAvailable } from "@/lib/db";
+import { isUserNameAvailable } from "@/lib/db";
 
 export async function GET(request: Request, { params }: { params: { username: string } }) {
   const session = await auth();

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Button from "./submitButton";
+import Button from "./SubmitButton";
 
 interface WordCountTextAreaProps {
   maxWords: number;

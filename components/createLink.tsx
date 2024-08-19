@@ -5,7 +5,7 @@ import React, { useCallback, useState } from "react";
 import { debounce } from "lodash";
 import { GrStatusGood } from "react-icons/gr";
 import { MdOutlineDangerous } from "react-icons/md";
-import SubmitButton from "./submitButton";
+import SubmitButton from "./SubmitButton";
 
 function CreateNewLink() {
   const [username, setUsername] = useState("");

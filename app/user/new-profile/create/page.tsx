@@ -1,8 +1,7 @@
 import { auth } from "@/auth";
-import DomainInputBox from "@/components/domainInputBox";
-import Logo from "@/components/logo";
-import { SignOut } from "@/components/sign-out";
-import CreateNewLink from "@/components/createLink";
+import Logo from "@/components/Logo";
+import { SignOut } from "@/components/Sign-out";
+import CreateNewLink from "@/components/CreateLink";
 import { permanentRedirect } from "next/navigation";
 import React from "react";
 

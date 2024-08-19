@@ -3,6 +3,7 @@ import { PrismaClient, User, Link, SocialLink } from "@prisma/client";
 import { permanentRedirect } from "next/navigation";
 import { Session } from "next-auth";
 import { PlatformBaseUrls } from "@/utils/platformTypes";
+import { unstable_cache as cache } from "next/cache";
 
 const prisma = new PrismaClient();
 
@@ -18,6 +19,7 @@ interface Description {
 
 export interface InputData {
   userName: string;
+  imageUrl?: string;
   socialLinks: Record<string, string>;
   description: Description;
 }
@@ -117,6 +119,7 @@ export const saveUserData = async (data: InputData) => {
         profileName: data.description.title,
         description: data.description.bio,
         userId: user.id,
+        imageUrl: session?.user?.image,
         socialLinks: {
           create: Object.entries(data.socialLinks).map(([platform, url]) => ({
             platform,
@@ -137,3 +140,23 @@ export async function deleteLink(id: string) {
     where: { id },
   });
 }
+
+export const queryLinkWithSocialLinks = async (userName: string) => {
+  try {
+    const linkWithSocialLinks = await prisma.link.findUnique({
+      where: { userName: userName[0] },
+      include: {
+        socialLinks: true,
+      },
+    });
+
+    if (!linkWithSocialLinks) {
+      throw new Error(`No link found for userName: ${userName}`);
+    }
+
+    return linkWithSocialLinks;
+  } catch (error) {
+    console.error("Error fetching link with social links:", error);
+    throw error;
+  }
+};

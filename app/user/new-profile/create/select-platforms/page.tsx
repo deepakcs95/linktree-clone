@@ -1,5 +1,5 @@
-import CreateLinkHeader from "@/components/createLinkHeader";
-import PlatformPicker from "@/components/platformPicker";
+import CreateLinkHeader from "@/components/CreateLinkHeader";
+import PlatformPicker from "@/components/PlatformPicker";
 import React from "react";
 
 const AddSocialLinks = () => {

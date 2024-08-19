@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import WordCountTextArea from "./WordCountTextArea";
-import Button from "./submitButton";
+import Button from "./SubmitButton";
 import { handleProfileSave } from "@/app/actions";
 import { Link } from "@prisma/client";
 
